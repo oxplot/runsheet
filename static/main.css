@@ -1,0 +1,30 @@
+[v-cloak] {
+  display: none;
+}
+.markdown-slim-p p {
+  margin:0;
+}
+.markdown-inline-p {
+  display: inline-block;
+}
+.markdown-inline-p p {
+  display: inline-block;
+}
+
+.full-op-on-hover:hover {
+  opacity: 1.0 !important;
+}
+
+ul, ol {
+  padding-left: 2em;
+  margin-bottom: 16px;
+}
+
+pre code {
+  padding: 0.5em;
+  margin-bottom: 16px;
+}
+
+code {
+  box-shadow: unset;
+}

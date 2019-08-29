@@ -1,0 +1,5 @@
+{
+  "Listen": ":8080",
+  "ConnectionUrl": "sqlite3://./example-db",
+  "RunsheetsSql": "select id, connection_url, tasks_sql, update_sql from sheets"
+}
