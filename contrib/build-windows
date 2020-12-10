@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e -o pipefail
+
+BUILDER_IMG="$(echo '
+
+FROM debian:experimental
+
+RUN apt-get update -y && apt-get -y install golang-1.15 mingw-w64
+RUN apt-get install -y ca-certificates
+
+ENV GOPATH=/go
+ENV PATH=/usr/lib/go-1.15/bin:$PATH
+
+' | docker build -q -)"
+
+docker run -it --rm -v "$(pwd)/..:/src" -w /src "${BUILDER_IMG}" bash -ec -o pipefail '
+
+go generate
+export GOOS=windows
+export GOARCH=amd64
+export CC=x86_64-w64-mingw32-gcc
+export CGO_ENABLED=1
+go build -tags prod -o runsheet-windows.exe
+chown $(stat --printf "%u:%g" .) runsheet-windows.exe
+
+'

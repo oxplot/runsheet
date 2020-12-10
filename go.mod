@@ -11,5 +11,7 @@ require (
 	github.com/lib/pq v1.2.0
 	github.com/looplab/tarjan v0.0.0-20161115091335-9cc6d6cebfb5
 	github.com/mattn/go-sqlite3 v1.11.0
+	github.com/shurcooL/httpfs v0.0.0-20190707220628-8d4bc4ba7749 // indirect
+	github.com/shurcooL/vfsgen v0.0.0-20200824052919-0d455de96546 // indirect
 	gopkg.in/goracle.v2 v2.19.0
 )
