@@ -17,9 +17,9 @@ import (
 
 	_ "github.com/denisenkom/go-mssqldb"
 	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/godror/godror"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
-	_ "gopkg.in/goracle.v2"
 
 	"github.com/gorilla/mux"
 	"github.com/jmoiron/sqlx"
@@ -355,5 +355,6 @@ func main() {
 	router.HandleFunc("/sheets", runsheetsHandler)
 	router.HandleFunc("/sheet/{sheet}/tasks", tasksEPHandler)
 	router.HandleFunc("/sheet/{sheet}/task/{task}", taskHandler)
+	log.Printf("listening on http://%s/", config.Listen)
 	panic(http.ListenAndServe(config.Listen, router))
 }
